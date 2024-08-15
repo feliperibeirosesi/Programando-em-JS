@@ -1,0 +1,104 @@
+HTML
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exibição de Dias da Semana</title>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Exibição de Dias da Semana</h1>
+      <p>Verifique o nome do dia para o número selecionado:</p>
+      <input
+        type="number"
+        id="dayInput"
+        min="1"
+        max="7"
+        placeholder="Número do Dia (1-7)"
+      />
+      <button onclick="displayDay()">Mostrar Dia</button>
+      <div id="result"></div>
+    </div>
+
+    <!-- Link para o arquivo JavaScript separado -->
+    <script src="comparação.js"></script>
+  </body>
+</html>
+
+
+SCC
+
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+input[type="number"] {
+  padding: 5px;
+  width: 150px;
+  text-align: center;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#result {
+  margin-top: 10px;
+  font-size: 18px;
+}
+
+p {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+
+JS
+
+function displayDay() {
+  // Obtém o número do dia do input
+  const day = parseInt(document.getElementById("dayInput").value, 10);
+
+  // Define a variável result
+  let result = "";
+
+  // Verifica qual dia da semana corresponde ao número
+  if (day === 1) {
+    result = "Domingo";
+  } else if (day === 2) {
+    result = "Segunda-feira";
+  } else if (day === 3) {
+    result = "Terça-feira";
+  } else if (day === 4) {
+    result = "Quarta-feira";
+  } else if (day === 5) {
+    result = "Quinta-feira";
+  } else if (day === 6) {
+    result = "Sexta-feira";
+  } else if (day === 7) {
+    result = "Sábado";
+  } else {
+    result = "Número inválido. Insira um número de 1 a 7.";
+  }
+
+  // Exibe o resultado
+  document.getElementById("result").textContent = result;
+}
